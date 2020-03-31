@@ -25,6 +25,7 @@ $ sudo -i
 ### Execute the scripts in function of the needs
 
 
-script name | purpose | usage
+script name | purpose | location
 :---------- | :-------| :-----
 popularity.sh|disable feed-back to Ubuntu| ./functions/popularity.sh
+apport.sh | sidable crash dump feed-back| ./functions/apport.sh
