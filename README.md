@@ -4,21 +4,25 @@
 
 ### Usage, login to the target system and elevate rights
 
-<code>
-$sudo -i
-#cd /tmp
-</code>
+```
+$ sudo -i
+# cd /tmp
+```
 
 ### Clone this git
 
+```
 # git clone -b cleanup https://github.com/PMeylemans/ununtu-scripts
+```
 
-Cd into the functions directory and make the scripts executable
+### Cd into the functions directory and make the scripts executable
 
+```
 # cd ubuntu-scripts/functions
 # chmod +x *.sh
+```
 
-Execute the scripts in function of the needs
+### Execute the scripts in function of the needs
 
 
 script name | purpose | usage
