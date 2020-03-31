@@ -1,3 +1,11 @@
 popularity () {
- sudo apt remove popularity-contest 
+ package = popupality-contest
+ installed = `apt list --installed | grep popularity-contest | wc -l`
+ if [$installed -gt 0]
+ then
+   sudo apt remove popularity-contest 
+ else
+ echo "$package not installed"
+ fi
 }
+
