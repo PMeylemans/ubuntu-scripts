@@ -11,7 +11,7 @@
 # Get the colation of this script, used files are relative to this location
 directory="$(dirname "$0")"
 
-# read the include file for this script
+# read the include file for to remove packages
 source $directory/remove_package.include
 
 remove_package "popularity-contest"
