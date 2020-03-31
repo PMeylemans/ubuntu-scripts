@@ -1,5 +1,4 @@
 remove_package () {
-# package=popupality-contest
  is_installed=`apt list --installed | grep $1 | wc -l`
  clear
  if [ $is_installed -gt 0 ]
