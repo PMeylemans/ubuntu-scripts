@@ -14,5 +14,5 @@ directory="$(dirname "$0")"
 # read the include file for this script
 source $directory/remove_package.include
 
-remove_package "popupality-contest"
+remove_package "popularity-contest"
 
