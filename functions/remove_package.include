@@ -1,0 +1,17 @@
+remove_package () {
+# package=popupality-contest
+ is_installed=`apt list --installed | grep $1 | wc -l`
+ clear
+ if [ $is_installed -gt 0 ]
+ then
+   echo -e "\n\n\n"
+   sudo apt remove $1 -y
+   echo -e "\n\n\n"
+   echo "$1 removed from the system"  
+   echo -e "\n\n\n"   
+ else
+   echo -e "\n\n\n"
+   echo "$1 was not installed on the system..."
+   echo -e "\n\n\n"
+ fi
+}
