@@ -7,9 +7,11 @@ popularity () {
    echo -e "\n\n\n"
    sudo apt remove popularity-contest -y
    echo -e "\n\n\n"
-   echo "$package removed from the system"   
+   echo "$package removed from the system"  
+   echo -e "\n\n\n"   
  else
    echo -e "\n\n\n"
    echo "$package was not installed on the system..."
+   echo -e "\n\n\n"
  fi
 }
