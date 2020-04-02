@@ -11,8 +11,12 @@
 # Get the colation of this script, used files are relative to this location
 directory="$(dirname "$0")"
 
-# read the include file for to remove packages
-# source $directory/remove_package.include
+# Actions needed to enable the root account on a Ubuntu system
+# You have to provide a password
+# before starting this script you must be in sudo -i mode
+
+passwd root
+passwd -u root
 
 # remove_package "apport"
 
