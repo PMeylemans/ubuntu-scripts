@@ -11,5 +11,6 @@
 clear
 echo -e "\n\n\n"
 ufw disable
+systemctl stop ufw
 echo -e "\n\n\n"
 echo "Firewall has been disabled"
