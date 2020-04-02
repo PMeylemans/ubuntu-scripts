@@ -25,5 +25,8 @@ if [ "$is_installed" -le "0" ]
 fi
 
 # check if root acces to sshd is already OK on this system
+# add extra line to the sshd_config file
 
- 
+echo "PermitRootLogin yes" >> /etc/ssh/sshd_conf
+systemctl restart ssh
+
