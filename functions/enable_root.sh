@@ -1,6 +1,6 @@
 #! /bin/bash
 #
-# Filename : enable_root_ssh.sh
+# Filename : enable_root.sh
 #
 # Purpose  : To disable feed-back to the Ubuntu comunity about installed packages
 #
