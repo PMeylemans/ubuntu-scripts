@@ -15,7 +15,7 @@ $ sudo -i
 # git clone -b cleanup https://github.com/PMeylemans/ununtu-scripts
 ```
 
-### Cd into the functions directory and make the scripts executable
+### Cd into the functions directory and make the scripts executable (if needed)
 
 ```
 # cd ubuntu-scripts/functions
@@ -27,5 +27,12 @@ $ sudo -i
 
 script name | purpose | location
 :---------- | :-------| :-----
-popularity.sh|disable feed-back to Ubuntu| ./functions/popularity.sh
-apport.sh | sidable crash dump feed-back| ./functions/apport.sh
+ ... | **Stop sending feedback**  | ...
+popularity.sh| *disable feed-back to Ubuntu* | ./functions/popularity.sh
+apport.sh | *disable crash dump feed-back* | ./functions/apport.sh
+ubuntu-report.sh | *some more feed-back* | ./functions/ubuntu-report.sh
+... | **network and access**| ..
+disable-ipv6.sh | *disable IPv6 stuff* | ./functions/disable-ipv6.sh
+disable-firewall.sh | *disable UFW (use with caution)* | ./functions/disable-firewall.sh
+enable_root.sh | *enable login with root (caution)* | ./functions/enable_root.sh
+install_sshd_enable_root.sh | *install ssh and enable for root user* | ./functions/install_sshd_enable_root.sh
