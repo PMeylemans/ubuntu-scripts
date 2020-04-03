@@ -21,7 +21,7 @@ if [ "$found_disable" -ge "1" ]
 	echo -e "\n\n\n"
 	echo "ipv6 allready disabled on this system"
  else
-        clear
+  clear
 	echo "GRUB_CMDLINE_LINUX_DEFAULT=\"ipv6.disable=1\""  >> /etc/default/grub
 	echo "GRUB_CMDLINE_LINUX=\"ipv6.disable=1\"" >> /etc/default/grub
 	update-grub
