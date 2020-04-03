@@ -15,3 +15,10 @@ directory="$(dirname "$0")"
 source $directory/remove_package.include
 
 apt install netscript-2.4 -y
+
+clear
+echo -e "\n\n\n"
+echo "netscript 2-4 installed, you can now use it e.g. ifdown & ifup)"
+echo "---------------------------------------------------------------"
+echo -e "\n\n\n"
+
