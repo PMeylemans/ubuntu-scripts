@@ -14,4 +14,4 @@ directory="$(dirname "$0")"
 # read the include file for to remove packages
 source $directory/remove_package.include
 
-apt install netscript-2.4
+apt install netscript-2.4 y
