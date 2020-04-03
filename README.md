@@ -36,3 +36,4 @@ disable-ipv6.sh | *disable IPv6 stuff* | ./functions/disable-ipv6.sh
 disable-firewall.sh | *disable UFW (use with caution)* | ./functions/disable-firewall.sh
 enable_root.sh | *enable login with root (caution)* | ./functions/enable_root.sh
 install_sshd_enable_root.sh | *install ssh and enable for root user* | ./functions/install_sshd_enable_root.sh
+install-netscript | *tools for networking* | ./functions/install-netscript.sh
