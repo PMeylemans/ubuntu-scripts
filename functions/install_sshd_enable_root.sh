@@ -6,6 +6,7 @@
 #
 # History :
 # 2020-04-02  MEY Created.
+# 2020-04-12  MEY changed sshd_conf ro sshd_config (BUGFIXING)
 # --------------------------------------------------------------------------------
 
 is_installed=`apt list --installed | grep openssh-server |  wc -l`
@@ -27,6 +28,6 @@ fi
 # check if root acces to sshd is already OK on this system
 # add extra line to the sshd_config file
 
-echo "PermitRootLogin yes" >> /etc/ssh/sshd_conf
+echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 systemctl restart ssh
 
