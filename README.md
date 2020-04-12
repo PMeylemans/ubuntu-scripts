@@ -2,11 +2,16 @@
 
 ## Some nice scripts for Ubuntu (servers)
 
+### Install git if not installed (ubuntu does not install this by default)
+
+```
+$ sudo apt install git -y
+```
+
 ### Usage, login to the target system and elevate rights
 
 ```
 $ sudo -i
-# cd /tmp
 ```
 
 ### Clone this git
@@ -15,11 +20,10 @@ $ sudo -i
 # git clone -b cleanup https://github.com/PMeylemans/ununtu-scripts
 ```
 
-### Cd into the functions directory and make the scripts executable (if needed)
+### Cd into the functions directory 
 
 ```
 # cd ubuntu-scripts/functions
-# chmod +x *.sh
 ```
 
 ### Execute the scripts in function of the needs
