@@ -41,3 +41,4 @@ disable-firewall.sh | *disable UFW (use with caution)* | ./functions/disable-fir
 enable_root.sh | *enable login with root (caution)* | ./functions/enable_root.sh
 install_sshd_enable_root.sh | *install ssh and enable for root user* | ./functions/install_sshd_enable_root.sh
 install-netscript | *tools for networking* | ./functions/install-netscript.sh
+set_timezone | *Set timezone to Europe Brussels* | ./functions/set_timezone.sh
