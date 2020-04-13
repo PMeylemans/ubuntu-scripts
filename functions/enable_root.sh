@@ -18,5 +18,5 @@ directory="$(dirname "$0")"
 passwd root
 passwd -u root
 
-# remove_package "apport"
+# now the user "root"has been enabled
 
