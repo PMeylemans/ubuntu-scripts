@@ -43,3 +43,5 @@ install_sshd_enable_root.sh | *install ssh and enable for root user* | ./functio
 install-netscript | *tools for networking* | ./functions/install-netscript.sh
 install-net-tools | *enable netstat..* | ./functions/install-net-tools.sh
 set_timezone | *Set timezone to Europe Brussels* | ./functions/set_timezone.sh
+... | **Start the all** | ...
+start-all | *start all scripts* | ./functions/start-all.sh
