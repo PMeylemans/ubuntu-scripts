@@ -44,4 +44,4 @@ install-netscript | *tools for networking* | ./functions/install-netscript.sh
 install-net-tools | *enable netstat..* | ./functions/install-net-tools.sh
 set_timezone | *Set timezone to Europe Brussels* | ./functions/set_timezone.sh
 ... | **Start them all** | ...
-start-all | *start all scripts* | ./functions/start-all.sh
+start-all | *start all scripts* | ./functions/01-Start-all.sh
