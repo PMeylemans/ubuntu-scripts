@@ -6,8 +6,9 @@
 #
 # History  20220531 MEY created
 #          20220602 MEY added some more logging
-#          20220610 MEY add loop through all Odoo databases of the server (to be finalized)
-# ----------------------------------------------------------------------------------------
+#          20220610 MEY add loop through all Odoo databases of the server
+#          20220610 MEY add content to the loop and search for exact words by grep -E
+# -----------------------------------------------------------------------------------
 
 # Variable section
 # ----------------
@@ -48,33 +49,41 @@ DATABASES=($DATABASELIST)
 
 for ODOODATABASE in "${DATABASES[@]}"
 do
- echo $ODOODATABASE
- # CODE INSIDE THIS LOOP
+
+  GREPSTRING="db:$ODOODATABASE"
+
+  ## Display the database name
+  ## -------------------------
+
+  printf "%s\n" >> $REPORTNAME
+  printf "%s\n" "-- Database Name : $ODOODATABASE" >> $REPORTNAME
+
+  ## Number of files in the Odoo filestore
+  ## -------------------------------------
+
+  NUMBEROFFILES=`find /users/odoo/data/filestore/$ODOODATABASE/. -type f | wc -l`
+  printf "%s\n" "- Number of files in the $ODOODATASBE store" >> $REPORTNAME
+  printf "%s " $NUMBEROFFILES >> $REPORTNAME
+  printf "%s\n" >> $REPORTNAME
+
+  ## Login fails in ODOO
+  ## -------------------
+
+  FAILDLOGINS=`grep "Login failed" /var/log/odoo/odoo-server.log | grep -E "\b"$GREPSTRING"(\s|$)" | cut -d' ' -f11,13 | sort | uniq -c`
+  printf "%s\n" "- Logins Failed in ODOO" >> $REPORTNAME
+  printf "%s\n" "${FAILDLOGINS[@]}" >> $REPORTNAME
+  printf "%s\n" >> $REPORTNAME
+
+
+  ## Number of xmlrpc calls by GCCW checked by part of the IP adress
+  ## ---------------------------------------------------------------
+
+  XMLRPCCALLS=`grep xmlrpc /var/log/nginx/odoo.access.log | grep "\b"$GREPSTRING"(\s|$)" | grep 192.168 | wc -l`
+  printf "%s\n" "- Number of xmlrpc calls by GCCW" >> $REPORTNAME
+  printf "%s " $XMLRPCCALLS >> $REPORTNAME
+  printf "%s\n" >> $REPORTNAME
+
 done
-
-## Number of files in the Odoo filestore
-## -------------------------------------
-
-NUMBEROFFILES=`find /users/odoo/data/filestore/$ODOODATABASE/. -type f | wc -l`
-printf "%s\n" ">> Number of files in the $ODOODATASBE store" >> $REPORTNAME
-printf "%s " $NUMBEROFFILES >> $REPORTNAME
-printf "%s\n" >> $REPORTNAME
-
-## Login fails in ODOO
-## -------------------
-
-FAILDLOGINS=`grep "Login failed" /var/log/odoo/odoo-server.log | cut -d' ' -f11,13 | sort | uniq -c`
-printf "%s\n" ">> Logins Failed in ODOO" >> $REPORTNAME
-printf "%s\n" "${FAILDLOGINS[@]}" >> $REPORTNAME
-printf "%s\n" >> $REPORTNAME
-
-## Number of xmlrpc calls by GCCW checked by part of the IP adress
-## ---------------------------------------------------------------
-
-XMLRPCCALLS=`grep xmlrpc /var/log/nginx/odoo.access.log | grep 192.168 | wc -l`
-printf "%s\n" ">> Number of xmlrpc calls by GCCW" >> $REPORTNAME
-printf "%s " $XMLRPCCALLS >> $REPORTNAME
-printf "%s\n" >> $REPORTNAME
 
 ## Number of xmlrpc call by others (externals)
 ## -------------------------------------------
@@ -95,6 +104,6 @@ printf "%s\n" >> $REPORTNAME
 ## Send to ntfy server
 ## -------------------
 
-curl --data-binary "@$REPORTNAME" ntfy.sh/$NTFYCHANNEL >/dev/null 2>&1
+#curl --data-binary "@$REPORTNAME" ntfy.sh/$NTFYCHANNEL >/dev/null 2>&1
 
 ## test output
