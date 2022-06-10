@@ -104,6 +104,6 @@ printf "%s\n" >> $REPORTNAME
 ## Send to ntfy server
 ## -------------------
 
-#curl --data-binary "@$REPORTNAME" ntfy.sh/$NTFYCHANNEL >/dev/null 2>&1
+curl --data-binary "@$REPORTNAME" ntfy.sh/$NTFYCHANNEL >/dev/null 2>&1
 
 ## test output
