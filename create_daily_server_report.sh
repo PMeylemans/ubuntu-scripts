@@ -8,12 +8,13 @@
 #          20220602 MEY added some more logging
 #          20220610 MEY add loop through all Odoo databases of the server
 #          20220610 MEY add content to the loop and search for exact words by grep -E
+#          20220610 MEY get hostname instead of specifying it
 # -----------------------------------------------------------------------------------
 
 # Variable section
 # ----------------
 
-SERVER="Odoo Test"				# Used as header in the file
+SERVER=""       				# Used as header in the file
 FREEDISKSPACE="0"				# initialize
 DATABASELIST=" "				# list with all Odoo databases
 DATABASES=" "					# Will become the array with databases
@@ -25,6 +26,12 @@ REPORTNAME=$LOCATION`date +%Y-%m-%d`.txt	# Name of the daily report
 XMLRPCCALS="0"					# initialize
 NTFYCHANNEL="_mey_"				# Channel on https://ntfy.sh must exist
 LOGFORSHELL=" "					# initialize
+
+
+# Hostname
+# --------
+
+SERVER=`hostname`
 
 # Create the report and write the header information
 # --------------------------------------------------
