@@ -9,7 +9,8 @@
 #          20220610 MEY add loop through all Odoo databases of the server
 #          20220610 MEY add content to the loop and search for exact words by grep -E
 #          20220610 MEY get hostname instead of specifying it
-# -----------------------------------------------------------------------------------
+#          20220610 MEY xmlrpc calls by GCCW doen't contain database name (remove this from the grep statement
+# ------------------------------------------------------------------------------------------------------------
 
 # Variable section
 # ----------------
