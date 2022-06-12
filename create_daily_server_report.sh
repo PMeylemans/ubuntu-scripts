@@ -8,6 +8,7 @@
 #          20220602 MEY added some more logging
 #          20220610 MEY add loop through all Odoo databases of the server
 #          20220610 MEY add content to the loop and search for exact words by grep -E
+#          20220612 MEY add the xmlrpc calls out the loop
 # -----------------------------------------------------------------------------------
 
 # Variable section
@@ -79,16 +80,15 @@ do
   printf "%s\n" "${FAILDLOGINS[@]}" >> $REPORTNAME
   printf "%s\n" >> $REPORTNAME
 
-
-  ## Number of xmlrpc calls by GCCW checked by part of the IP adress
-  ## ---------------------------------------------------------------
-
-  XMLRPCCALLS=`grep xmlrpc /var/log/nginx/odoo.access.log | grep 192.168 | wc -l`
-  printf "%s\n" "- Number of xmlrpc calls by GCCW" >> $REPORTNAME
-  printf "%s " $XMLRPCCALLS >> $REPORTNAME
-  printf "%s\n" >> $REPORTNAME
-
 done
+
+## Number of xmlrpc calls by GCCW checked by part of the IP adress
+## ---------------------------------------------------------------
+
+XMLRPCCALLS=`grep xmlrpc /var/log/nginx/odoo.access.log | grep 192.168 | wc -l`
+printf "%s\n" ">> Number of xmlrpc calls by GCCW" >> $REPORTNAME
+printf "%s " $XMLRPCCALLS >> $REPORTNAME
+printf "%s\n" >> $REPORTNAME
 
 ## Number of xmlrpc call by others (externals)
 ## -------------------------------------------
