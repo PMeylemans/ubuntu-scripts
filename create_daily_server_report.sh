@@ -9,6 +9,7 @@
 #          20220610 MEY add loop through all Odoo databases of the server
 #          20220610 MEY add content to the loop and search for exact words by grep -E
 #          20220612 MEY add the xmlrpc calls out the loop
+#          20220617 MEY add extra field in Failed logins to display the date
 # -----------------------------------------------------------------------------------
 
 # Variable section
@@ -75,7 +76,7 @@ do
   ## Login fails in ODOO
   ## -------------------
 
-  FAILDLOGINS=`grep "Login failed" /var/log/odoo/odoo-server.log | grep -E "\b"$GREPSTRING"(\s|$)" | cut -d' ' -f11,13 | sort | uniq -c`
+  FAILDLOGINS=`grep "Login failed" /var/log/odoo/odoo-server.log | grep -E "\b"$GREPSTRING"(\s|$)" | cut -d' ' -f1,11,13 | sort | uniq -c`
   printf "%s\n" "- Logins Failed in ODOO" >> $REPORTNAME
   printf "%s\n" "${FAILDLOGINS[@]}" >> $REPORTNAME
   printf "%s\n" >> $REPORTNAME
