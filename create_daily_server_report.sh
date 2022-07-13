@@ -10,7 +10,8 @@
 #          20220610 MEY add content to the loop and search for exact words by grep -E
 #          20220612 MEY add the xmlrpc calls out the loop
 #          20220617 MEY add extra field in Failed logins to display the date
-# -----------------------------------------------------------------------------------
+#          20220712 MEY add reporting for fail2ban, should be put in comment if not installed on server
+# -----------------------------------------------------------------------------------------------------
 
 # Variable section
 # ----------------
@@ -27,6 +28,7 @@ REPORTNAME=$LOCATION`date +%Y-%m-%d`.txt	# Name of the daily report
 XMLRPCCALS="0"					# initialize
 NTFYCHANNEL="_mey_"				# Channel on https://ntfy.sh must exist
 LOGFORSHELL=" "					# initialize
+FAIL2BAN=" "					# initialize
 
 # Set the hostname
 # ----------------
@@ -106,6 +108,19 @@ LOGFORSHELL=`grep {jndi:ldap /var/log/nginx/odoo.access.log`
 printf "%s\n" ">> Log4shell attempts" >> $REPORTNAME
 printf "%s\n" "${LOGFORSHELL[@]}" >> $REPORTNAME
 printf "%s\n" >> $REPORTNAME
+
+## fail2ban status
+## ---------------
+FAIL2BAN=`fail2ban-client status odoo-login`
+printf "%s\n" ">> Fail2ban odoo-login" >> $REPORTNAME
+printf "%s\n" "${FAIL2BAN[@]}" >> $REPORTNAME
+printf "%s\n" >> $REPORTNAME
+
+FAIL2BAN=`fail2ban-client status sshd`
+printf "%s\n" ">> Fail2ban sshd" >> $REPORTNAME
+printf "%s\n" "${FAIL2BAN[@]}" >> $REPORTNAME
+printf "%s\n" >> $REPORTNAME
+
 
 ## Send to ntfy server
 ## -------------------
